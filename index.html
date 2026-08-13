@@ -37,14 +37,12 @@
 
     <script>
         const API_URL = '/api/status';
-        let currentData = null;
 
         async function refresh() {
             document.getElementById('status').innerHTML = '🔄 Yükleniyor...';
             try {
                 const res = await fetch(API_URL);
                 const data = await res.json();
-                currentData = data;
                 render(data);
                 document.getElementById('status').innerHTML = '✅ Güncellendi: ' + new Date().toLocaleString();
             } catch(e) {
